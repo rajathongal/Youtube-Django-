@@ -1,0 +1,38 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Video -
+{% endblock %}
+
+
+{% block body %}
+
+<h2>{{ video.title }}</h2>
+
+<video width="720" height="640" controls>
+    <source src="{{ video.path }}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+<p style="font-size: 20px;">{{ video.description }}</p>
+<br><br>
+<h3 style="font-size: 30px;">Comments</h3>
+
+{% if form %}
+<form action="/comment" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type='hidden' name='video' value='{{ video.id }}' id="input-lg">
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg">Post Comment!</button>
+</form>
+{% endif %}
+
+{% for comment in comments %}
+<p style="font-size: 20px;">
+{{ comment.user }} posted on: {{ comment.datetime }} <br>
+{{ comment.text }}
+</p>
+{% endfor %}
+
+
+{% endblock %}

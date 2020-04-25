@@ -1,0 +1,23 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+<h1>Video-Sharing Platform</h1><br>
+<br>
+
+{% for video in most_recent_videos %}
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">{{ video.title }}</h1>
+          <p class="lead">{{ video.description }}</p>
+          <p style="font-size: 20px; color:gray;">Uploaded by <a href="profile" style="font-size:20px; color:gray;">{{ video.user }} </a> on {{ video.datetime }} </p>
+          <p style="text-align: right; font-size:30px; color:gray"><a href='/video/{{ video.id }}'>Watch Video</a></p>
+        </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

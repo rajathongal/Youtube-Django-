@@ -1,0 +1,25 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Log into your Account
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <br>
+      <form class="form-horizontal" action="login" method="POST" role="form"><br>
+        {% csrf_token %}
+        <br>
+
+        <table>
+        {{ form.as_table }}
+        </table>
+        <br>
+        <br>
+        <div class="g-recaptcha" data-sitekey="6LdkIcMUAAAAACaIbcC8MFXLjnMfzjAi3evumVD5"></div>
+        <br>
+        <button type="submit" class="btn btn-primary btn-lg" role="button">Log In</button>
+      </form>
+</div>
+{% endblock %}

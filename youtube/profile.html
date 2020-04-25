@@ -1,0 +1,15 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block body %}
+{% for video in most_recent_videos %}
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+                    <p style="font-size: 20px; color:gray;">{{ video.user }}</p>
+        </div>
+</div>
+{% endfor %}
+{% endblock %}

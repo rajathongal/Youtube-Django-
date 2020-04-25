@@ -1,0 +1,32 @@
+{% extends "parent.html" %}
+
+{% block title %}
+Create a new Account
+{% endblock %}
+
+
+{% block body %}
+
+<h1>Create a "Video-Sharing PLatform" Account</h1><br>
+
+<form action="register" method="POST">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-lg">Create Account!</button>
+        <br>
+        <br>
+          <style media="screen">
+            a {color: gray;}
+          </style>
+          <br>
+          <br>
+        <div class="container">
+          <h3>Aready have an account?</h3>
+           <a href="login" style="font-size:20px">LOGIN</a>
+        </div>
+</form>
+{% endblock %}
